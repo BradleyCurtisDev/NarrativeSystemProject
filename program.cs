@@ -18,5 +18,9 @@ while (true)
 {
     var Scene = story[current];
     Console.WriteLine("working up to here?");
-    
+    if (Scene.Choices.Count == 0) break;
+    for (int i = 0; i < Scene.Choices.Count; i++) Console.WriteLine("hi");
 };
+
+record Scene (string Text, List<(string Label, string Next)> Choices);
+
