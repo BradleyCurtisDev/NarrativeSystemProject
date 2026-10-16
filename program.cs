@@ -30,7 +30,7 @@ while (true)
     {
         Console.WriteLine("Please enter a valid number.");
     }
-};
+}
 
 record Scene (string Text, List<(string Label, string Next)> Choices);
 
