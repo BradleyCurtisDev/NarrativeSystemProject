@@ -12,7 +12,11 @@ var story = new Dictionary<string, Scene>
 
     ["outside"] = new Scene("you get shot and explode and die", new List<(string Label, string Next)>()),
 
-    ["inside"] = new Scene("you get stabbed and then get served a tasty steak dinner that you cant enjoy because youre freaking dead", new List<(string Label, string Next)>()),
+    ["inside"] = new Scene("you get stabbed and then get served a tasty steak dinner that you cant enjoy because youre freaking dead", new List<(string Label, string Next)>()
+    {
+        ("Do you want to revive and go outside", "outside"),
+        ("Stay Dead", "start")
+    }),
 
 };
 
