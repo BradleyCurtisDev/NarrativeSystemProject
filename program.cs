@@ -6,7 +6,7 @@ var story = new Dictionary<string, Scene>
   ["start"] = new Scene("Years ago, you signed up to be a backup lighthouse keeper as a joke but you recently got a call asking you to go and check on the lighthouse just offshore of your home town. The current keeper hasnt responded to calls and checkins for the last week. (Pick your choices, the story changes based on your decisions) ",
    new List<(string Label, string Next)>
     {
-    ("Accept the call, pack your bags and head to the lighthouse in the morning.", "accept"),
+    ("Accept the call, pack your bags and head to the lighthouse tomorrow afternoon", "accept"),
     ("Refuse the offer. It was meant as a joke after all.", "decline")
     }),
 
@@ -47,7 +47,7 @@ var story = new Dictionary<string, Scene>
         ("Ignore it and go check out the office", "office1")
     }),
 
-    ["diary1"] = new Scene("The page has yesterdays date on it but the writing is ineligible, seems like the page was just scribbled on.", new List<(string Label, string Next)>()
+    ["diary1"] = new Scene("The page has yesterdays date on it but the writing is illegible, seems like the page was just scribbled on.", new List<(string Label, string Next)>()
     {
         ("Put the page down and go up to the office", "office1"),
     }),
