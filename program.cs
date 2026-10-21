@@ -1,6 +1,11 @@
 using System;
 using System.Collections.Generic;
 
+class Program
+{
+ static void Main(string[] args)
+ {   
+
 //This contains the entire narrative including scenes and choices. It maps the unique scene keys to scene records which hold the choices and overarching text
 var story = new Dictionary<string, Scene>
 {
@@ -76,7 +81,7 @@ var story = new Dictionary<string, Scene>
         ("Close Game", "close")
     }),
 
-    ["ending1"] = new Scene("Goodbye", new List<(string Label, string Next)>()),
+    ["close"] = new Scene("Goodbye", new List<(string Label, string Next)>()),
 };
 
 //Program always starts at "start"
@@ -103,6 +108,8 @@ while (true)
     {
         Console.WriteLine("Please enter a valid number.");
     }
+}
+}
 }
 
 //record represents each single scene in the dictionary. It acts like a template for all the scenes and choices
