@@ -52,6 +52,30 @@ var story = new Dictionary<string, Scene>
         ("Put the page down and go up to the office", "office1"),
     }),
 
+    ["office1"] = new Scene("You go upstars to the office, it's also empty. Everything is neatly arranged and packed away except for a ledger, lying open on the desk.", new List<(string Label, string Next)>()
+    {
+        ("Inspect the ledger", "ledger1"),
+    }),
+
+        ["ledger1"] = new Scene("Its open on todays date, with writing on the page already. 'Today I finally arrived at the lighthouse but I haven't found anyone here YET...' ", new List<(string Label, string Next)>()
+    {
+        ("Continue reading", "ledger1.1"),
+        ("Close the ledger", "endofdemo")
+    }),
+
+        ["ledger1.1"] = new Scene("The next line seems to be something that hasnt happened yet. 'I went down to the Engine Room but the fuel tank was still nearly full.'", new List<(string Label, string Next)>()
+    {
+        ("Check the Engine Room", "endofdemo"),
+        ("Close the ledger", "endofdemo")
+    }),
+
+    ["endofdemo"] = new Scene("Thank you for playing my short narrative demo. I might add more in the future but since this was a short project I have left it here.", new List<(string Label, string Next)>()
+    {
+        ("Play Again", "start"),
+        ("Close Game", "close")
+    }),
+
+    ["ending1"] = new Scene("Goodbye", new List<(string Label, string Next)>()),
 };
 
 string current = "start";
