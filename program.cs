@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+//This contains the entire narrative including scenes and choices. It maps the unique scene keys to scene records which hold the choices and overarching text
 var story = new Dictionary<string, Scene>
 {
   ["start"] = new Scene("Years ago, you signed up to be a backup lighthouse keeper as a joke but you recently got a call asking you to go and check on the lighthouse just offshore of your home town. The current keeper hasnt responded to calls and checkins for the last week. (Pick your choices, the story changes based on your decisions) ",
@@ -78,18 +79,24 @@ var story = new Dictionary<string, Scene>
     ["ending1"] = new Scene("Goodbye", new List<(string Label, string Next)>()),
 };
 
+//Program always starts at "start"
 string current = "start";
 
 while (true)
 {
+    //get the current scene from the dictionary
     var scene = story[current];
     Console.WriteLine($"\n {scene.Text}");
+    //if there is no choices, this ends the game
     if (scene.Choices.Count == 0) break;
+    //show all choices for the scene
     for (int i = 0; i < scene.Choices.Count; i++) Console.WriteLine($"{i+1}. {scene.Choices[i].Label} ");
     Console.Write("> ");
+    //Check if the player entered a number that works with how many options there are. e.g if there is only 2 choices, you cant enter the number 3
     if (int.TryParse(Console.ReadLine(), out int pick) &&
         pick >= 1 && pick <= scene.Choices.Count)
     {
+        //update the current scene to whatever choice the player picked
         current = scene.Choices[pick - 1].Next;
     }
     else
@@ -98,5 +105,9 @@ while (true)
     }
 }
 
+//record represents each single scene in the dictionary. It acts like a template for all the scenes and choices
+//When i want to add more lines in the actual narrative its simple.
+// ["scene name"] = new Scene ("Dialogue/Story", new List<(string Label, string Next)>()
+// { ("Choice Text", "Next scene key") }),
 record Scene (string Text, List<(string Label, string Next)> Choices);
 
